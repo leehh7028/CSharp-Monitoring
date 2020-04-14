@@ -35,17 +35,20 @@
             this.Btn_SensorStop = new System.Windows.Forms.Button();
             this.Btn_BeaconStop = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_IntervaConfig = new System.Windows.Forms.TextBox();
+            this.Btn_IntervalButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(19, 23);
+            this.textBox1.Location = new System.Drawing.Point(19, 76);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(83, 331);
+            this.textBox1.Size = new System.Drawing.Size(83, 278);
             this.textBox1.TabIndex = 1;
             // 
             // Btn_SensorStart
@@ -60,12 +63,12 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(127, 23);
+            this.textBox2.Location = new System.Drawing.Point(127, 76);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(341, 331);
+            this.textBox2.Size = new System.Drawing.Size(341, 278);
             this.textBox2.TabIndex = 1;
             // 
             // Btn_BeaconStart
@@ -103,18 +106,48 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(474, 23);
+            this.dataGridView1.Location = new System.Drawing.Point(474, 76);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(314, 331);
+            this.dataGridView1.Size = new System.Drawing.Size(314, 278);
             this.dataGridView1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(18, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 19);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Interval";
+            // 
+            // txt_IntervaConfig
+            // 
+            this.txt_IntervaConfig.Location = new System.Drawing.Point(78, 17);
+            this.txt_IntervaConfig.Name = "txt_IntervaConfig";
+            this.txt_IntervaConfig.Size = new System.Drawing.Size(100, 21);
+            this.txt_IntervaConfig.TabIndex = 8;
+            // 
+            // Btn_IntervalButton
+            // 
+            this.Btn_IntervalButton.Location = new System.Drawing.Point(184, 17);
+            this.Btn_IntervalButton.Name = "Btn_IntervalButton";
+            this.Btn_IntervalButton.Size = new System.Drawing.Size(75, 23);
+            this.Btn_IntervalButton.TabIndex = 9;
+            this.Btn_IntervalButton.Text = "설정";
+            this.Btn_IntervalButton.UseVisualStyleBackColor = true;
+            this.Btn_IntervalButton.Click += new System.EventHandler(this.Btn_IntervalButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 476);
+            this.Controls.Add(this.Btn_IntervalButton);
+            this.Controls.Add(this.txt_IntervaConfig);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Btn_BeaconStop);
             this.Controls.Add(this.Btn_BeaconStart);
@@ -140,6 +173,9 @@
         private System.Windows.Forms.Button Btn_SensorStop;
         private System.Windows.Forms.Button Btn_BeaconStop;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_IntervaConfig;
+        private System.Windows.Forms.Button Btn_IntervalButton;
     }
 }
 

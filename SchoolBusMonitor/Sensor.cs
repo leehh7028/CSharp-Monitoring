@@ -20,16 +20,17 @@ namespace SchoolBusMonitor
         {
             string connStr = "server=210.115.227.108;user=cic;database=kindergartenbus;password=20180903in";
             string sql = "Select * from sensor_data ORDER BY time DESC limit 1;";
-            
-            MySqlConnection conn = new MySqlConnection(connStr);
-            MySqlCommand cmd = new MySqlCommand(sql)
-            {
-                Connection = conn
-            };
-            conn.Open();
-            MySqlDataReader reader = cmd.ExecuteReader();
+
             try
             {
+                MySqlConnection conn = new MySqlConnection(connStr);
+                MySqlCommand cmd = new MySqlCommand(sql)
+                {
+                    Connection = conn
+                };
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
                 while (reader.Read())
                 {
                     if (this.InvokeRequired)
@@ -43,9 +44,10 @@ namespace SchoolBusMonitor
                     }
                     else
                     {
-                        textBox1.AppendText(reader[0] + ", " + reader[1] + ", " + reader[2] + ", " + reader[3]  + Environment.NewLine);
+                        textBox1.AppendText(reader[0] + ", " + reader[1] + ", " + reader[2] + ", " + reader[3] + Environment.NewLine);
                     }
                 }
+                conn.Close();
             }
             catch (Exception ex)
             {
@@ -53,7 +55,7 @@ namespace SchoolBusMonitor
                 textBox1.AppendText(ex.ToString());
             }
 
-            conn.Close();
+
 
             //return result;
         }

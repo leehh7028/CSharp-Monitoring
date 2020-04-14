@@ -17,19 +17,21 @@ namespace SchoolBusMonitor
         {
             string connStr = "server=210.115.227.108;user=cic;database=kindergartenbus;password=20180903in";
             string sql = "SELECT * FROM device_unique_info_tb;";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            MySqlCommand cmd = new MySqlCommand(sql)
-            {
-                Connection = conn
-            };
-            conn.Open();
-            MySqlDataReader reader = cmd.ExecuteReader();
 
             try
             {
-                while(reader.Read())
+                MySqlConnection conn = new MySqlConnection(connStr);
+                MySqlCommand cmd = new MySqlCommand(sql)
                 {
-                    textBox2.AppendText(reader[0] + ", " + reader[1] + ", " + reader[2] + ", " + reader[3] + ", "+ Environment.NewLine);
+                    Connection = conn
+                };
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    textBox2.AppendText(reader[0] + ", " + reader[1] + ", " + reader[2] + ", " + reader[3] + ", " + Environment.NewLine);
                 }
             }
             catch (Exception ex)
@@ -45,19 +47,20 @@ namespace SchoolBusMonitor
             string connStr = "server=210.115.227.108;user=cic;database=kindergartenbus;password=20180903in";
             string sql = "Select * from device_variable_info_tb ORDER BY time DESC limit 1;";
 
-            MySqlConnection conn = new MySqlConnection(connStr);
-            MySqlCommand cmd = new MySqlCommand(sql)
-            {
-                Connection = conn
-            };
-            conn.Open();
-            MySqlDataReader reader = cmd.ExecuteReader();
-
             try
             {
+                MySqlConnection conn = new MySqlConnection(connStr);
+                MySqlCommand cmd = new MySqlCommand(sql)
+                {
+                    Connection = conn
+                };
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+
                 while (reader.Read())
                 {
-                    if(this.InvokeRequired)
+                    if (this.InvokeRequired)
                     {
                         this.Invoke(new MethodInvoker(delegate ()
                         {
@@ -70,6 +73,8 @@ namespace SchoolBusMonitor
                         textBox2.AppendText(reader[0] + ", " + reader[1] + ", " + reader[2] + ", " + reader[3] + ", " + reader[4] + Environment.NewLine);
                     }
                 }
+
+                conn.Close();
             }
             catch (Exception ex)
             {
@@ -77,8 +82,7 @@ namespace SchoolBusMonitor
                 //MessageBox.Show(ex.ToString());
             }
 
-            conn.Close();
-            //return result;
+            
         }
     }
 }

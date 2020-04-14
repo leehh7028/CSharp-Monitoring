@@ -13,7 +13,6 @@ using System.Net;
 using System.IO;
 
 
-
 namespace SchoolBusMonitor
 {
     public partial class Form1 : Form
@@ -33,8 +32,6 @@ namespace SchoolBusMonitor
             //Firebase_Connection();
             BeaconList();
         }
-
-
 
 
         /****************************************************************************/
@@ -172,6 +169,9 @@ namespace SchoolBusMonitor
             }
         }
 
+        private void Btn_IntervalButton_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
